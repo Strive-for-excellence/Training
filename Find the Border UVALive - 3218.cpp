@@ -1,7 +1,6 @@
 
 
 
-```cpp
 #include <bits/stdc++.h>
 #define mem(ar,num) memset(ar,num,sizeof(ar))
 #define me(ar) memset(ar,0,sizeof(ar))
@@ -222,4 +221,4 @@ int main(void)
 
     return 0;
 }
-```
+
