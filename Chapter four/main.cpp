@@ -1,5 +1,5 @@
-#include <cstdio>//CÓïÑÔio
-#include <cstring>//ÒÔÏÂÊÇcÓïÑÔ³£ÓÃÍ·ÎÄ¼ş
+#include <cstdio>//Cè¯­è¨€io
+#include <cstring>//ä»¥ä¸‹æ˜¯cè¯­è¨€å¸¸ç”¨å¤´æ–‡ä»¶
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -9,14 +9,14 @@
 #include <iostream>//c++IO
 #include <sstream>
 #include <string>
-#include <list>//c++³£ÓÃÈİÆ÷
+#include <list>//c++å¸¸ç”¨å®¹å™¨
 #include <vector>
 #include <set>
 #include <map>
 #include <queue>
 #include <stack>
-#include <algorithm>//c++·ºĞÍµÄÒ»Ğ©º¯Êı
-#include <functional>//ÓÃÀ´Ìá¹©Ò»Ğ©Ä£°æ
+#include <algorithm>//c++æ³›å‹çš„ä¸€äº›å‡½æ•°
+#include <functional>//ç”¨æ¥æä¾›ä¸€äº›æ¨¡ç‰ˆ
 #define fo0(i,n) for(int i = 0;i < n; ++i)
 #define fo1(i,n) for(int i = 1;i <= n; ++i)
 #define mem(ar,num) memset(ar,num,sizeof(ar))
@@ -101,12 +101,12 @@ Vector Rotate(Vector A,double rad)
 {
     return Vector (A.x*cos(rad)-A.y*sin(rad),A.x*sin(rad)+A.y*cos(rad));
 }
-Vector Normal(Vector A)//µ¥Î»·¨Ïß
+Vector Normal(Vector A)//å•ä½æ³•çº¿
 {
     double L = Length(A);
     return Vector(-A.y/L,A.x/L);
 }
-//µ÷ÓÃÇ°È·±£Ö±ÏßÓĞÎ¨Ò»½»µã£¬µ±ÇÒ½öµ±Cross(v,w)·Ç0
+//è°ƒç”¨å‰ç¡®ä¿ç›´çº¿æœ‰å”¯ä¸€äº¤ç‚¹ï¼Œå½“ä¸”ä»…å½“Cross(v,w)é0
 Point Get_Line_Intersection(Point P,Vector v,Point Q,Vector w)
 {
     Vector u = P - Q;
@@ -118,7 +118,7 @@ double angle(Vector v)
     return atan2(v.y,v.x);
 }
 
-double Distance_To_Line(Point P,Point A,Point B)//µãµ½Ö±ÏßµÄ¾àÀë
+double Distance_To_Line(Point P,Point A,Point B)//ç‚¹åˆ°ç›´çº¿çš„è·ç¦»
 {
     Vector v1 = B-A,v2 = P-A;
     return fabs(Cross(v1,v2)/Length(v1));
@@ -135,24 +135,24 @@ double Distance_To_Segment(Point P,Point A,Point B)
     else
         return fabs(Cross(v1,v2))/Length(v1);
 }
-Point Get_Line_Projection(Point P,Point A,Point B)//ÇóÍ¶Ó°µã
+Point Get_Line_Projection(Point P,Point A,Point B)//æ±‚æŠ•å½±ç‚¹
 {
     Vector v = B- A;
     return A + v*(Dot(v,P-A)/Dot(v,v));
 }
-//Ïß¶ÎÏà½»ÅĞ¶¨ Ïà½»²»ÔÚÏß¶ÎµÄ¶Ëµã
+//çº¿æ®µç›¸äº¤åˆ¤å®š ç›¸äº¤ä¸åœ¨çº¿æ®µçš„ç«¯ç‚¹
 bool Segment_Proper_Intersection(Point a1,Point a2,Point b1,Point b2)
 {
     double c1 =  Cross(a2-a1,b1-a1),c2 = Cross(a2-a1,b2-a1),
            c3 =  Cross(b2-b1,a2-b1),c4 = Cross(b2-b1,a1-b1);
     return dcmp(c1)*dcmp(c2)<0&&dcmp(c3)*dcmp(c4)<0;
 }
-//ÅĞ¶ÏµãÊÇ·ñÔÚÏß¶ÎÉÏ(²»°üÀ¨¶Ëµã£©
+//åˆ¤æ–­ç‚¹æ˜¯å¦åœ¨çº¿æ®µä¸Š(ä¸åŒ…æ‹¬ç«¯ç‚¹ï¼‰
 bool Onsegment(Point p,Point a1,Point a2)
 {
     return dcmp(Cross(a1-p,a2-p))==0&&dcmp(Dot(a1-p,a2-p))<0;
 }
-//¶à±ßĞÎµÄÓĞÏòÃæ»ı
+//å¤šè¾¹å½¢çš„æœ‰å‘é¢ç§¯
 //1
 double PolygonArea (Point * p,int n)
 {
