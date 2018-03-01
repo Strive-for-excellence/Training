@@ -244,15 +244,15 @@ bool Intersect(int x,int y,int r,Polygon poly)
         int tmp = Get_Line_Circle_Intersection(Line(poly[(i+1)%n]-poly[i],poly[i]),Circle(c,r),sol,t1,t2);
         if(tmp==2)
         {
-            for(int i = 0; i < sol.size(); ++i)
+           /* for(int i = 0; i < sol.size(); ++i)
             {
                 if(Onsegment(sol[i],poly[i],poly[(i+1) % n]))
                     return true;
-            }
-//            if(dcmp(t1) > 0 && dcmp(t1-1) < 0)
-//                return true; // 端点在圆上
-//            if(dcmp(t2) > 0 && dcmp(t2-1) < 0)
-//                return true;
+            }*/
+           if(dcmp(t1) > 0 && dcmp(t1-1) < 0)
+              return true; // 端点在圆上
+           if(dcmp(t2) > 0 && dcmp(t2-1) < 0)
+               return true;
         }
     }
     return false;
