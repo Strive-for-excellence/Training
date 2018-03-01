@@ -1,3 +1,6 @@
+
+//重点是在求圆与直线的交点，然后判断交点是否在线段上这一段，浮点误差
+
 #include <bits/stdc++.h>
 #define mem(ar,num) memset(ar,num,sizeof(ar))
 #define me(ar) memset(ar,0,sizeof(ar))
